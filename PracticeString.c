@@ -2,9 +2,9 @@
 #include <string.h>
 int main() {
   /* define first_name */
-  char * first_name = "John"
+  char * first_name = "John";
   /* define last_name */
-  char last_name[] = "Doe"
+  char last_name[] = "Doe";
   char name[100];
 
   last_name[0] = 'B';
