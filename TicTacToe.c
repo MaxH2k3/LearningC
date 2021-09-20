@@ -176,14 +176,17 @@ int check_Win(int board[3][3]) {
 //play game
 int play(int player, int x, int y, int board[3][3]) {
     
+    // xử lý lỗi
     if (board[x][y] != 0 || x > 3 || y > 3) {
         Correct_Board = 0;
         printf("error\n");
         return Correct_Board;
     }
     
+    //thay đổi mảng
     board[x][y] = player;
     
+    // xuất mảng đã thay đổi
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 3; j++) {
             printf("%d\t", board[i][j]);
@@ -191,6 +194,7 @@ int play(int player, int x, int y, int board[3][3]) {
     printf("\n");
     }
     
+    //gợi ý người chơi tiếp theo
     if (player == 1) {
         printf("it's your turn to player 2\n");
     }
