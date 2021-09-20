@@ -1,31 +1,57 @@
 #include <stdio.h>
 int check_Win(int board[3][3]);
+int check_board(int board[3][3]);
 
-
+int i, j;
 int main()
 {
-    int board[3][3] ={
-        {2, 1, 2},
-        {2, 2, 1},
-        {2, 2, 1}
+    int board[3][3] = {
+        {2, 1, 1},
+        {1, 2, 2},
+        {1, 2, 1}
     };
     
-    int result = check_Win(board);
     
     
-    if (result == 3){
-        printf("Draw");
+    int Correct_Board = check_board(board);
+    printf("The board is: %d\n", Correct_Board);
+
+    if (Correct_Board == 1) {
+        int result = check_Win(board);
+        if (result == 3) {
+            printf("Draw");
+        }
+        else {
+            printf("Player %d win", result);
+        }
     }
-    else {
-        printf("Player %d win", result);
-    }
-    
     
 
     return 0;
 }
 
 
+//check board
+int check_board(int board[3][3]) {
+    int player1 = 0;
+    int player2 = 0;
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            if (board[i][j] == 1) {
+                player1++;
+            }
+            else if (board[i][j] == 2) {
+                player2++;
+            }
+        }
+    };
+    if (player2 > player1 || player1 - player2 >= 2) {
+        return 0;
+    }
+}
+
+
+//check result game
 int check_Win(int board[3][3]) {
     int winner = 0;
     int i;
@@ -116,9 +142,6 @@ int check_Win(int board[3][3]) {
         }
     };
 
+
     return winner;
 }
-
-
-
-
