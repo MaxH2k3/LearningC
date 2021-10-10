@@ -8,6 +8,8 @@ typedef struct {
     float average;
 } hocsinh;
 
+float average_class(hocsinh class_speacial[3]);
+
 int main() {
     hocsinh hs1;
     hs1.name = "Le Huy";
@@ -45,8 +47,22 @@ int main() {
         printf("Point of subject math = %f, english = %f, literature = %f\n", hs.math_grade, hs.english_grade, hs.literature_grade);
         printf("Average of subject = %f\n", hs.average);
         printf("-----------------\n");
-    }
+    };
+
+
+    float results = average_class(class_speacial);
+    printf("average of class: %f", results);
     
 
     return 0;
+}
+
+float average_class(hocsinh class_speacial[3]) {
+    int i = 0;
+    float results_of_class = 0;
+    for (i; i < 3; i++) {
+        hocsinh hs = class_speacial[i];
+        results_of_class = hs.average + results_of_class;
+    }
+    return results_of_class / i;
 }
