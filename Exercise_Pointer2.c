@@ -66,3 +66,5 @@ float average_class(hocsinh class_speacial[3]) {
     }
     return results_of_class / i;
 }
+
+
